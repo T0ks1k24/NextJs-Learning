@@ -6,13 +6,8 @@ import styles from "./ProductList.module.css";
 import CardProduct from "../CardProduct/CardProduct";
 
 export default function ProductList() {
-	const [product, setProduct] = useState({
-		name: "",
-		price: "",
-		imgUrl: "",
-	});
+	const [product, setProduct] = useState([]);
 	const [loaging, setLoading] = useState(false);
-	const [product1, setProduct1] = useState([]);
 
 	const input = useInput("");
 
@@ -20,7 +15,7 @@ export default function ProductList() {
 		setLoading(true);
 		const response = await fetch("https://localhost:7117/api/product");
 		const products = await response.json();
-		setProduct1(products);
+		setProduct(products);
 		setLoading(false);
 	}, []);
 
@@ -35,7 +30,7 @@ export default function ProductList() {
 			{loaging && <p className={styles.p}>Loading...</p>}
 			{!loaging && (
 				<div className={styles.list}>
-					{product1
+					{product
 						.filter((prod) =>
 							prod.name
 								.toLowerCase()
