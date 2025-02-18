@@ -2,10 +2,10 @@
 
 import { useEffect, useState, useCallback } from "react";
 import useInput from "@/hooks/useInput";
-import styles from "./CardProductList.module.css";
+import styles from "./ProductList.module.css";
 import CardProduct from "../CardProduct/CardProduct";
 
-export default function CardProductList() {
+export default function ProductList() {
 	const [product, setProduct] = useState({
 		name: "",
 		price: "",

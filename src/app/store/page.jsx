@@ -1,4 +1,4 @@
-import CardProductList from "@/components/CardProductList/CardProductList";
+import ProductList from "@/components/ProductList/ProductList";
 import styles from "./page.module.css";
 
 export default function Index() {
@@ -6,7 +6,7 @@ export default function Index() {
 		<main className={styles.main}>
       <h1 className={styles.h1}>Магазин</h1>
 			<div className={styles.div}>
-				<CardProductList />
+				<ProductList />
 			</div>
 		</main>
 	);
