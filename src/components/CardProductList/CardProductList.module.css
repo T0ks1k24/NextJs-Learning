@@ -1,0 +1,33 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* Вирівнювання елементів */
+}
+
+.p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+  text-align: center;
+  width: 100%;
+}
+
+.control {
+  width: 100%;
+  max-width: 600px;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px auto 20px;
+  display: block;
+}
+
+.label {
+  font-size: 22px;
+  color: white;
+  display: block;
+  text-align: center;
+  margin-bottom: 5px;
+}
