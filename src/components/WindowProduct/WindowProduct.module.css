@@ -12,17 +12,16 @@
 
 .h3 {
   margin-bottom: 20px;
-  font-size: 24px;
   color: #333;
   text-align: center;
 }
 
 .popup {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  padding: 30px;
-  width: 400px; /* або більше, якщо потрібно */
+  padding: 20px;
+  width: 500px; 
   position: relative;
 }
 
@@ -31,57 +30,82 @@
   flex-direction: column;
 }
 
-.inputText,
-.inputNumber,
 .select {
+  color: rgb(255, 255, 255);
   width: 100%;
   padding: 12px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 20px;
   transition: border-color 0.3s;
-}
-
-.inputText:focus,
-.inputNumber:focus,
-.select:focus {
-  border-color: #007bff;
-  outline: none;
 }
 
 .select {
   appearance: none;
-  background: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="gray" width="10px" height="10px"%3E%3Cpath d="M8 10.586L3.707 6.293a1 1 0 011.414-1.414L8 7.586l2.879-2.707a1 1 0 011.414 1.414L8 10.586z"/%3E%3C/svg%3E') no-repeat right 10px center;
+  background-color: #3a3a3a;
   background-size: 12px;
 }
 
+.popup {
+  background: #292929;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 800px;
+  height: 700px;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  opacity: 10;
+  animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.popup h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #fff;
+}
+
+.popup input {
+  font-size: 20px;  
+  width: 100%;
+  height: 50px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  background: #3a3a3a;
+  color: #fff;
+}
+
 .buttonContainer {
+  position: absolute;
+  bottom: 20px; 
+  left: 30px; /* Вирівнюємо по лівому краю */
+  right: 30px;
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
 }
 
-.button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 12px 15px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+.buttonContainer button {
+  font-size: 20px;
   flex: 1;
-  margin: 0 5px; /* Відступ між кнопками */
+  margin: 5px;
 }
 
-.button:hover {
-  background-color: #0056b3;
-}
-
-.button[type="button"] {
-  background-color: #dc3545;
-}
-
-.button[type="button"]:hover {
-  background-color: #c82333;
+.input_description {
+  height: 100px;
 }

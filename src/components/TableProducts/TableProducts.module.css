@@ -1,0 +1,78 @@
+.h1 {
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.productTableContainer {
+  max-height: 700px;
+  overflow-y: auto;
+  border: 1px solid #555;
+}
+
+.productTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: #3a3a3a;
+  border-radius: 8px;
+}
+
+.productTable thead th {
+  position: sticky; 
+  top: 0; 
+  background: #444; 
+  z-index: 2; 
+  color: #fff; 
+  padding: 12px; 
+}
+
+.productTable td {
+  padding: 10px;
+  color: #ccc;
+  border-bottom: 1px solid #555;
+}
+
+.productTable tr:last-child td {
+  border-bottom: none;
+}
+
+.productTable tr:hover {
+  background: #505050;
+}
+
+.price {
+  font-weight: bold;
+  color: #ff9800;
+}
+
+.imageUrl {
+  color: #4da6ff;
+  word-break: break-all;
+}
+
+.button {
+  margin: 2px;
+  width: 60px;
+  height: 30px;
+  font-size: 10px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.buttonEdit {
+  background-color: #ffc107;
+  color: black;
+}
+
+.buttonDelete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
