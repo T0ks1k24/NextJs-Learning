@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from "react";
 import Button from "@/components/Button/Button";
-import PopupWindow from "../PopupWindow/PopupWindow";
 import styles from "./WindowProduct.module.css";
 import { fetchCategories } from "@/services/categoryService";
 import { createProduct } from "@/services/productService";
 
-export default function WindowProduct({ isOpen, openModal, closeModal }) {
+
+export default function WindowProduct({ isOpen, openModal, closeModal, onProductAdded }) {
 	const [category, setCategory] = useState([]);
 	const [formData, setFormData] = useState({
 		name: "",
@@ -29,6 +29,7 @@ export default function WindowProduct({ isOpen, openModal, closeModal }) {
 
 		fetchCategory();
 	}, []);
+
 
 	const handleChange = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -57,6 +58,7 @@ export default function WindowProduct({ isOpen, openModal, closeModal }) {
 		try {
 			await createProduct(formData);
 			alert("Продукт додано!");
+			onProductAdded();
 			closeModal();
 			setFormData({
 				name: "",

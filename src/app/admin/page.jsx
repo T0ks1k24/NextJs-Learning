@@ -9,6 +9,10 @@ import TablePorduct from "@/components/TableProducts/TableProducts";
 export default function Index() {
 	const [activeModal, setActiveModal] = useState(null);
 
+	const [update, setUpdate] = useState(false);
+
+	const reloadProducts = () => setUpdate((prev) => !prev); 	
+
 	const openModal = (modal) => {
 		if (!activeModal) {
 			setActiveModal(modal);
@@ -27,6 +31,7 @@ export default function Index() {
 					isOpen={activeModal === "product"}
 					openModal={() => openModal("product")}
 					closeModal={closeModal}
+					onProductAdded={reloadProducts}
 				/>
 				<WindowCategory
 					isOpen={activeModal === "category"}
@@ -35,7 +40,7 @@ export default function Index() {
 				/>
 			</div>
 			<div className={styles.div_right}>
-				<TablePorduct />
+				<TablePorduct onProductsUpdate={reloadProducts} key={update}/>
 			</div>
 		</section>
 	);

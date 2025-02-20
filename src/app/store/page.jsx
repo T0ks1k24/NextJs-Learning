@@ -1,3 +1,5 @@
+"use client"
+
 import ProductList from "@/components/ProductList/ProductList";
 import styles from "./page.module.css";
 

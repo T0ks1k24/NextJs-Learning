@@ -1,34 +1,39 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import useInput from "@/hooks/useInput";
 import styles from "./ProductList.module.css";
 import CardProduct from "../CardProduct/CardProduct";
+import { fetchProducts } from "@/services/productService";
 
 export default function ProductList() {
 	const [product, setProduct] = useState([]);
-	const [loaging, setLoading] = useState(false);
+	const [loading, setLoading] = useState(false);
 
 	const input = useInput("");
 
-	const fecthProduct = useCallback(async () => {
-		setLoading(true);
-		const response = await fetch("https://localhost:7117/api/product");
-		const products = await response.json();
-		setProduct(products);
-		setLoading(false);
-	}, []);
-
 	useEffect(() => {
-		fecthProduct();
-	}, [fecthProduct]);
+		setLoading(true);
+
+		const loadProducts = async () => {
+			try {
+				const data = await fetchProducts();
+				setProduct(data);
+			} catch (error) {
+				console.error("Fetch error:", error);
+			} finally {
+				setLoading(false);
+			}
+		};
+		loadProducts();
+	}, []);
 
 	return (
 		<section>
-      <label className={styles.label}>Пошук</label>
-      <input type="text" className={styles.control} {...input} />
-			{loaging && <p className={styles.p}>Loading...</p>}
-			{!loaging && (
+			<label className={styles.label}>Пошук</label>
+			<input type="text" className={styles.control} {...input} />
+			{loading && <p className={styles.p}>Loading...</p>}
+			{!loading && (
 				<div className={styles.list}>
 					{product
 						.filter((prod) =>

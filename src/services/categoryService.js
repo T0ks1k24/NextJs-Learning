@@ -5,7 +5,7 @@ export async function fetchCategories() {
 		const response = await fetch(API_URL);
 		if (!response.ok) throw new Error("Failed to fetch categories");
 		return await response.json();
-	} catch {
+	} catch (error) {
 		console.error("Error loading categories:", error);
 		return [];
 	}
@@ -33,7 +33,7 @@ export async function deleteCategory(categoryId) {
 		});
 		if (!response.ok) throw new Error("Failed to delete category");
 		return await response.json();
-	} catch {
+	} catch (error) {
 		console.error("Error deleting category:", error);
 	}
 }
