@@ -1,9 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
-import styles from "./Header.module.css";
+import styles from "./Header.module.scss";
 
 export default function Header() {
 	const [time, setTime] = useState("");
@@ -25,10 +24,7 @@ export default function Header() {
 					width={55}
 					height={55}
 				/>
-				<Link className={styles.link} href="/">Головна</Link>
-				<Link className={styles.link} href="/store">Магазин</Link>
-				<Link className={styles.link} href="/">Картинки</Link>
-				<Link className={styles.link} href="/">Зворотній зв'язок</Link>
+				<h2>NextJs-Learning</h2>
 				<span className={styles.span}>{time}</span>
 			</div>
 		</header>

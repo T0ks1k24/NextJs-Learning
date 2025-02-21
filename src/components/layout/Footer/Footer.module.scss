@@ -1,0 +1,23 @@
+.footer {
+  background: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+
+  a {
+    font-size: 22px;
+    padding: 5px;
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      color: #ddd
+    }
+  }
+
+  p {
+    padding: 3px;
+  }
+
+}
